@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SummonsBoard DB</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title">도감 추가</h3>
+		<form id="form1" name="form1" method="post" action="">
+		    <div>
+		        <h4 class="sub-title">기본정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+                <tr>
+                    <td>
+                        <label class="asterisk">이미지</label>
+                    </td>
+                    <td>
+                        <input type="file" id="image">
+                    </td>
+                </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">No.</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="14" size="14" id="number" name="number" autofocus>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">몬스터 이름</label>
+		                </td>
+		                <td>
+		                    <input type="text" id="name" name="name">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">속성</label>
+		                </td>
+		                <td>
+                        <label><input type="radio" name="element" value="火">火</label>
+                        <label><input type="radio" name="element" value="水">水</label>
+                        <label><input type="radio" name="element" value="木">木</label>
+                        <label><input type="radio" name="element" value="光">光</label>
+                        <label><input type="radio" name="element" value="闇">闇</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">레어도</label>
+		                </td>
+		                <td>
+                        <label><input type="radio" name="rarity" value="★1">★1</label>
+                        <label><input type="radio" name="rarity" value="★2">★2</label>
+                        <label><input type="radio" name="rarity" value="★3">★3</label>
+                        <label><input type="radio" name="rarity" value="★4">★4</label>
+                        <label><input type="radio" name="rarity" value="★5">★5</label>
+                        <label><input type="radio" name="rarity" value="★6">★6</label>
+                        <label><input type="radio" name="rarity" value="★7">★7</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">타입</label>
+		                </td>
+		                <td>
+                        <label><input type="radio" name="type" value="공격">공격</label>
+                        <label><input type="radio" name="type" value="체력">체력</label>
+                        <label><input type="radio" name="type" value="밸런스">밸런스</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">부타입</label>
+		                </td>
+		                <td>
+                        <label><input type="radio" name="subtype" value="어택">어택</label>
+                        <label><input type="radio" name="subtype" value="스킬어택">스킬어택</label>
+                        <label><input type="radio" name="subtype" value="카운터">카운터</label>
+                        <label><input type="radio" name="subtype" value="어시스트">어시스트</label>
+                        <label><input type="radio" name="subtype" value="디펜스">디펜스</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>능력</label>
+		                </td>
+		                <td>
+                        <label><input type="checkbox" name="ability" value="ab_1">비행</label>
+                        <label><input type="checkbox" name="ability" value="ab_2">전체화</label>
+                        <label><input type="checkbox" name="ability" value="ab_3">관통</label>
+                        <label><input type="checkbox" name="ability" value="ab_4">방어</label>
+                        <label><input type="checkbox" name="ability" value="ab_5">스턴</label>
+                        <label><input type="checkbox" name="ability" value="ab_6">하트업</label>
+                        <label><input type="checkbox" name="ability" value="ab_7">대공</label>
+                        <br>
+                        <label><input type="checkbox" name="ability" value="ab_8">회피업</label>
+                        <label><input type="checkbox" name="ability" value="ab_9">저주</label>
+                        <label><input type="checkbox" name="ability" value="ab_10">베리어</label>
+                        <label><input type="checkbox" name="ability" value="ab_11">비래흡수</label>
+                        <label><input type="checkbox" name="ability" value="ab_12">피지컬헌트</label>
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>공격력</label>
+		                </td>
+		                <td>
+		                    <input type="text" id="power" name="power" maxlength="3" size="5" placeholder="1타 수치만">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label class="asterisk">HP</label>
+		                </td>
+		                <td>
+		                      <input type="text" id="hp" name="hp" maxlength="5" size="5">
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		    <div>
+		        <h4 class="sub-title">추가정보</h4>
+		        <table class="user-table">
+		        	<colgroup>
+		        		<col style="width:30%;">
+		        		<col style="width:70%;">
+		        	</colgroup>
+		            <tr>
+		                <td>
+		                    <label>리더스킬</label>
+		                </td>
+		                <td>
+		                    <input type="text" style="width:20%;" id="lsname" name="lsname">
+                        <input type="text" style="width:80%;" id="lsdescription" name="lsdescription">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>액티브스킬</label>
+		                </td>
+		                <td>
+                        <input type="text" style="width:20%;" id="asname" name="asname">
+                        <input type="text" style="width:80%;" id="asdescription" name="asdescription">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>입수장소</label>
+		                </td>
+		                <td>
+		                    <input type="text" style="width:90%;" id="gp" name="gp">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>같은 스킬 몬스터</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="14" id="same" style="width:90%;" placeholder="이름 입력">
+		                </td>
+		            </tr>
+		            <tr>
+		                <td>
+		                    <label>진화소재</label>
+		                </td>
+		                <td>
+		                    <input type="text" maxlength="14" id="materiel" style="width:90%;" placeholder="이름 입력">
+		                </td>
+		            </tr>
+		        </table>
+		    </div>
+		</form>
+		<div class="btn-area">
+	    	<button class="btn-danger" id="btn_save">저장</button>
+	    	<button class="btn-default" id="btn_cancel">취소</button>
+	    </div>
+	</div>
+
+	<!-- Script 작성 영역 -->
+	<script src="js/jquery-2.1.1.js"></script>
+    <script src="js/util.js"></script>
+
+    <script>
+      function doCancel(){
+    		document.location.href = 'index.html';
+    	}
+
+    	function doSave(){
+    		var number = $('#number').val();
+    		var name = $('#name').val();
+    		var oElement = $('[name=element]:checked').val();
+    		var oRarity = $('[name=rarity]:checked').val();
+    		var oType = $('[name=type]:checked').val();
+    		var oSubtype = $('[name=subtype]:checked').val();
+    		var oAbility = $('[name=ability]:checked');
+    		var power = $('#power').val();
+    		var hp = $('#hp').val();
+    		var lsname = $('#lsname').val();
+        var lsdescription = $('#lsdescription').val();
+    		var asname = $('#asname').val();
+        var asdescription = $('#asdescription').val();
+    		var gp = $('#gp').val();
+    		var same = $('#same').val();
+    		var materiel = $('#materiel').val();
+
+
+    		if(number == ''){
+    			alert('번호를 입력하세요.');
+    			$('#number').focus();
+    			return;
+    		}
+
+    		if(name == ''){
+    			alert('이름을 입력하세요.');
+    			$('#name').focus();
+    			return;
+    		}
+
+
+    		var data = {};
+    		data["NUMBER"] = number;
+    		data["NAME"] = name;
+    		data["ELEMENT"] = oElement;
+    		data["RARITY"] = oRarity;
+    		data["TYPE"] = oType;
+    		data["SUBTYPE"] = oSubtype;
+    		data["POWER"] = power;
+    		data["HP"] = hp;
+    		data["LSNAME"] = lsname;
+    		data["LSDESCRIPTION"] = lsdescription;
+        data["ASNAME"] = asname;
+    		data["ASDESCRIPTION"] = asdescription;
+    		data["GP"] = gp;
+    		data["SAME"] = same;
+    		data["MATERIEL"] = materiel;
+
+    		var abilarea = [];
+    		for(var i=0 ; i<oAbility.length ; i++){
+    			abilarea.push($(oAbility[i]).val());
+    		}
+
+    		data["ABILAREA"] = abilarea;
+
+    		console.log(data);
+
+    		$.ajax({
+	             url: "json/sb.monster.json",	//업데이트 프로그램을 수행하는 서버 url 호출
+	             async: true,      //비동기방식 씀
+	             header: {},
+	             data: JSON.stringify(data),   // 데이터 형태
+               dataType: "json",
+	             type: "GET",    // get: url에 데이터 보임 , post: url에는 숨김 보통 이것씀
+	             success: function(data) {
+                  console.log(data);
+				          alert('성공!');
+	             },
+	             error:function(jqxhr, textStatus, error){
+	                var err = textStatus + ", " + error;
+	                console.log(err);
+	             }
+	        });
+    	}
+
+    	$(document).ready(function(){
+    		$('#btn_save').click(function(){
+    			doSave();
+    		});
+
+    		$('#btn_cancel').click(function(){
+    			doCancel();
+    		});
+
+    		$('#number').on('keydown', function(e){
+    			checkNumber(event);
+    		});
+
+    	});
+
+    </script>
+</body>
+
+</html>

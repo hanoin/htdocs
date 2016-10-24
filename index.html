@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SummonsBoard DB</title>
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-100">
+        <div>
+            <h4 class="sub-title">서몬즈 보드 몬스터 도감 <div class="pull-right"><button class="btn-primary" id="btn_search">검색</button><button class="btn-danger" style="margin-left:5px;" id="btn_create">추가</button></div></h4>
+            <table class="search-table">
+                <colgroup>
+                    <col style="width:5%;">
+                    <col style="width:12%;">
+                    <col style="width:5%;">
+                    <col style="width:12%;">
+                    <col style="width:5%;">
+                    <col style="width:20%;">
+                    <col style="width:7%;">
+                    <col style="width:32%;">
+                </colgroup>
+                <tr>
+                    <th>
+                        <label>No.</label>
+                    </th>
+                    <td>
+                        <input type="text" maxlength="14" id="number" style="width:90%;">
+                    </td>
+                    <th>
+                        <label>이름</label>
+                    </th>
+                    <td>
+                        <input type="text" maxlength="14" id="name" style="width:90%;">
+                    </td>
+                    <th>
+                        <label>속성</label>
+                    </th>
+                    <td>
+                        <label><input type="checkbox" name="element" value="火">火</label>
+                        <label><input type="checkbox" name="element" value="水">水</label>
+                        <label><input type="checkbox" name="element" value="木">木</label>
+                        <label><input type="checkbox" name="element" value="光">光</label>
+                        <label><input type="checkbox" name="element" value="闇">闇</label>
+                    </td>
+                    <th>
+                        <label>레어도</label>
+                    </th>
+                    <td>
+                        <label><input type="checkbox" name="rarity" value="ra_1">★1</label>
+    	      				  	<label><input type="checkbox" name="rarity" value="ra_2">★2</label>
+    	      					  <label><input type="checkbox" name="rarity" value="ra_3">★3</label>
+    	        					<label><input type="checkbox" name="rarity" value="ra_4">★4</label>
+    	        					<label><input type="checkbox" name="rarity" value="ra_5">★5</label>
+    	      		  			<label><input type="checkbox" name="rarity" value="ra_6">★6</label>
+    	      	  				<label><input type="checkbox" name="rarity" value="ra_7">★7</label>
+                    </td>
+                </tr>
+            </table>
+            <table style="margin-top:2px;" class="search-table">
+                <colgroup>
+                    <col style="width:5%;">
+                    <col style="width:13%;">
+                    <col style="width:7%;">
+                    <col style="width:25%;">
+                    <col style="width:5%;">
+                    <col style="width:35%;">
+                </colgroup>
+                <tr>
+                  <th>
+                    <label>타입</label>
+                  </th>
+                  <td>
+                    <label><input type="radio" name="type" value="ty_1">공격</label>
+                    <label><input type="radio" name="type" value="ty_2">체력</label>
+                    <label><input type="radio" name="type" value="ty_3">밸런스</label>
+                  </td>
+                  <th>
+                    <label>부타입</label>
+                  </th>
+                  <td>
+                    <label><input type="radio" name="subtype" value="sty_1">어택</label>
+  	      					<label><input type="radio" name="subtype" value="sty_2">스킬어택</label>
+  	      					<label><input type="radio" name="subtype" value="sty_3">카운터</label>
+  	      					<label><input type="radio" name="subtype" value="sty_4">어시스트</label>
+  	      					<label><input type="radio" name="subtype" value="sty_5">디펜스</label>
+                  </td>
+                  <th>
+                    <label>능력</label>
+                  </th>
+                  <td>
+                    <label><input type="checkbox" name="ability" value="ab_1">비행</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_2">전체화</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_3">관통</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_4">방어</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_5">스턴</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_6">하트업</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_7">대공</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_8">회피업</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_9">저주</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_10">베리어</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_11">비래흡수</label>
+  	      					<label><input type="checkbox" name="ability" value="ab_12">피지컬헌트</label>
+                  </td>
+               </tr>
+            </table>
+        </div>
+        <div style="margin-top:10px;">
+            <table class="list-table" id="grid1">
+                <thead>
+                    <tr>
+                        <th onclick="sort('number');">No.</th>
+                        <th onclick="sort('name');">이름</th>
+                        <th onclick="sort('element');">속성</th>
+                        <th onclick="sort('rarity');">레어도</th>
+                        <th onclick="sort('type');">타입</th>
+                        <th onclick="sort('subtype');">부타입</th>
+                        <th onclick="sort('power');">공격력</th>
+                        <th onclick="sort('hp');">HP</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <div class="paginate" id="paginate"></div>
+        </div>
+    </div>
+    <!-- Script 작성 영역 -->
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/util.js"></script>
+    <script>
+        var data = [];
+        var _bAsc = true;
+        var _currentPage = 1;
+        var _pagingCnt = 10;
+
+        function sort(key){
+            if(_bAsc){
+                sortAsc(key);
+            }else{
+                sortDes(key);
+            }
+        }
+
+        function sortAsc(key){
+            data.sort(function(a1,a2){
+                var x = String(a1[key]).toLowerCase();
+                var y = String(a2[key]).toLowerCase();
+
+                if (x < y) {return -1;}
+                if (x > y) {return 1;}
+                return 0;
+            });
+
+            _bAsc = false;
+            renderTable(_currentPage);
+        }
+
+        function sortDes(key){
+            data.sort(function(a1,a2){
+                var x = String(a1[key]).toLowerCase();
+                var y = String(a2[key]).toLowerCase();
+
+                if (x > y) {return -1;}
+                if (x < y) {return 1;}
+                return 0;
+            });
+
+            _bAsc = true;
+            renderTable(_currentPage);
+        }
+
+        function renderTable(pageNo){
+            var h = [];
+            var len = data.length;
+
+            var startIndex = ((pageNo-1)*_pagingCnt);
+            var endIndex = (pageNo*_pagingCnt);
+
+            if(endIndex > len) endIndex = len;
+
+            for(var i=startIndex ; i<endIndex ; i++){
+                h.push('<tr data-number="' + data[i]['number'] + '">');  // 임의로 어트리뷰트 정의
+                h.push('<td>' + data[i]['number'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['name'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['oElement'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['oRarity'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['oType'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['oSubtype'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['power'] + '</td>');
+                h.push('<td class="text-center">' + data[i]['hp'] + '</td>');
+                h.push('</tr>');
+            }
+
+            $('#grid1 > tbody').html(h.join(''));
+
+            $('#grid1 > tbody > tr').click(function(){  // '.tr도 가능 대신 전체를 검색해야하므로 느림'
+                var number = $(this).attr('data-number');  //attr : 어트리뷰트를 가져오겠다
+                goDetail(number);
+            });
+
+            renderPagination(pageNo);
+
+            _currentPage = pageNo;
+        }
+
+        function renderPagination(pageNo){
+            var cnt = data.length;
+            var pageCnt = parseInt(cnt/_pagingCnt);
+            if((cnt%_pagingCnt) > 0) pageCnt = pageCnt + 1;
+
+            var prePageNo = pageNo - 1;
+            if(prePageNo < 1) prePageNo = 1;
+
+            var nexPageNo = pageNo + 1;
+            if(nexPageNo > pageCnt) nexPageNo = pageCnt;
+
+            var h = [];
+
+            h.push('<a href="javascript:renderTable(' + prePageNo + ');">Prev</a>');
+            for(var i=0 ; i<pageCnt ; i++){
+                if(pageNo == (i+1)) h.push('<strong>' + pageNo + '</strong>');
+                else h.push('<a href="javascript:renderTable(' + (i+1) + ');">' + (i+1) + '</a>');
+            }
+            h.push('<a href="javascript:renderTable(' + nexPageNo + ');" class="last">Next</a>');
+
+            $('#paginate').html(h.join(''));
+        }
+
+        function doSearch(){
+            var number = $('#number').val();
+            var name = $('#name').val();
+            var element = $('#element').val();
+            var rarity = $('#rarity').val();
+            var type = $('#type').val();
+            var subtype = $('#subtype').val();
+            var ability = $('#ability').val();
+
+            var param = "&NUMBER="+number+"&NAME="+name+"&ELEMENT="+element+"&RARITY="+rarity+"&TYPE="+type+"&SUBTYPE="+subtype+"&ABILITY="+ability
+
+            $.getJSON( "json/sb.monster.json", param )
+                .done(function( json ) {
+                    data = json['MonsterList'];
+                    renderTable(1);
+                })
+                .fail(function( jqxhr, textStatus, error ) {
+                    var err = textStatus + ", " + error;
+                    console.log(err);
+                }
+            );
+        }
+
+    	function goCreate(){
+    		document.location.href = 'create.html';
+    	}
+
+    	function goDetail(number){
+    		document.location.href = 'detail.html';
+    	}
+
+        $(document).ready(function(){
+            $('#btn_search').click(function(){
+                doSearch();
+            });
+
+            $('#btn_create').click(function(){
+                goCreate();
+            });
+        });
+    </script>
+</body>
+
+</html>

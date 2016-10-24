@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>SummonsBoard DB</title>
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+table, th, td {
+    border: 1px solid black;
+}
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<h3 class="title">몬스터 정보</h3>
+	    <div>
+        <table>
+          <tr>
+            <td rowspan="8"><label><link rel="stylesheet" href="image/sb_1622.jpg"></label></td>
+            <th colspan="2"><span id="name"></span></th>
+          </tr>
+          <tr>
+            <th><label>진화 전</label></th>
+            <th><label>진화 후</label></th>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>33</td>
+          </tr>
+          <tr>
+            <th><label>리더스킬</label></th>
+            <th><label>액티브스킬</label></th>
+          </tr>
+          <tr>
+            <td><span id="ls_name"></span></td>
+            <td><span id="as_name"></span></td>
+          </tr>
+          <tr>
+            <td><span id="ls_description"></span></td>
+            <td><span id="as_description"></span></td>
+          </tr>
+          <tr>
+            <th><label>입수장소</label></th>
+            <th><label>같은 스킬 몬스터</label></th>
+          </tr>
+          <tr>
+            <td><span id="gp"></span></td>
+            <td><span id="same"></span></td>
+          </tr>
+
+        </table>
+
+	    </div>
+
+	    <div class="btn-area">
+	    	<button class="btn-default" id="btn_list">리스트</button>
+	    </div>
+	</div>
+
+	<!-- Script 작성 영역 -->
+	<script src="js/jquery-2.1.1.js"></script>
+    <script>
+    	function goList(){
+    		document.location.href = 'index.html';
+    	}
+
+      var data = {
+    		
+    	};
+
+    	function loadData(){
+    		$('#name').html(data['NAME']);
+    		$('#ls_name').html(data['LS_NAME']);
+    		$('#ls_description').html(data['LS_DESCRIPTION']);
+    		$('#as_name').html(data['AS_NAME']);
+        $('#as_description').html(data['AS_DESCRIPTION']);
+        $('#gp').html(data['GP']);
+        $('#same').html(data['SAME']);
+      }
+
+    	$(document).ready(function(){
+    		loadData();
+
+    		$('#btn_list').click(function(){
+    			goList();
+    		});
+    	});
+    </script>
+</body>
+
+</html>

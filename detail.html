@@ -5,11 +5,6 @@
     <meta charset="utf-8">
     <title>SummonsBoard DB</title>
     <link href="css/style.css" rel="stylesheet">
-    <style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
 </head>
 
 <body>
@@ -18,7 +13,7 @@ table, th, td {
 	    <div>
         <table>
           <tr>
-            <td rowspan="8"><label><link rel="stylesheet" href="image/sb_1622.jpg"></label></td>
+            <td rowspan="8"><label><link rel="" href="image/sb_1622.jpg"></label></td>
             <th colspan="2"><span id="name"></span></th>
           </tr>
           <tr>
@@ -34,12 +29,12 @@ table, th, td {
             <th><label>액티브스킬</label></th>
           </tr>
           <tr>
-            <td><span id="ls_name"></span></td>
-            <td><span id="as_name"></span></td>
+            <td><span id="lsname"></span></td>
+            <td><span id="asname"></span></td>
           </tr>
           <tr>
-            <td><span id="ls_description"></span></td>
-            <td><span id="as_description"></span></td>
+            <td><span id="lsdescription"></span></td>
+            <td><span id="asdescription"></span></td>
           </tr>
           <tr>
             <th><label>입수장소</label></th>
@@ -62,31 +57,38 @@ table, th, td {
 	<!-- Script 작성 영역 -->
 	<script src="js/jquery-2.1.1.js"></script>
     <script>
+      var data = {};
+
     	function goList(){
     		document.location.href = 'index.html';
     	}
 
-      var data = {
-    		
-    	};
-
     	function loadData(){
-    		$('#name').html(data['NAME']);
-    		$('#ls_name').html(data['LS_NAME']);
-    		$('#ls_description').html(data['LS_DESCRIPTION']);
-    		$('#as_name').html(data['AS_NAME']);
-        $('#as_description').html(data['AS_DESCRIPTION']);
-        $('#gp').html(data['GP']);
-        $('#same').html(data['SAME']);
+    		$('#name').html(data['name']);
+    		$('#lsname').html(data['lsname']);
+    		$('#lsdescription').html(data['lsdescription']);
+    		$('#asname').html(data['asname']);
+        $('#asdescription').html(data['asdescription']);
+        $('#gp').html(data['gp']);
+        $('#same').html(data['same']);
       }
 
     	$(document).ready(function(){
-    		loadData();
+        $.getJSON( "json/sb.monster.json", data )
+            .done(function( json ) {
+            data = json['MonsterList'];
+            loadData();
+        })
+        .fail(function( jqxhr, textStatus, error ) {
+            var err = textStatus + ", " + error;
+            console.log(err);
+        })
+
 
     		$('#btn_list').click(function(){
     			goList();
-    		});
-    	});
+        });
+});
     </script>
 </body>
 
